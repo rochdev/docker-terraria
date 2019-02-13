@@ -2,7 +2,7 @@ FROM ubuntu:14.04.4
 
 RUN apt-get update && apt-get install -y unzip
 
-ENV TERRARIA_VERSION=1352 TERRARIA_ZIP=terraria-server.zip TMODLOADER_VERSION=v0.10.1.5 TMODLOADER_ZIP=tmodloader.zip CONFIG=Linux/serverconfig.txt
+ENV TERRARIA_VERSION=1352 TERRARIA_ZIP=terraria-server.zip TMODLOADER_VERSION=v0.10.1.5 TMODLOADER_ZIP=tmodloader.zip
 
 WORKDIR /opt/terraria
 
@@ -21,4 +21,4 @@ RUN unzip $TMODLOADER_ZIP -d Linux/ \
 
 EXPOSE 7777
 
-ENTRYPOINT ./Linux/tModLoaderServer -x64 -config $CONFIG
+ENTRYPOINT ./Linux/tModLoaderServer -x64 -config /opt/terraria/Linux/serverconfig.txt
